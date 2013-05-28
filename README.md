@@ -68,8 +68,6 @@ user.createdAt = [NSDate date];
 User *user = [User userWithDictionary:@{@"name": @"Joe", @"age": @20, @"createdAt": [NSDate date]}];
 Cat *car = [Cat carWithDictionary:@{@"name": @"Mini", @"age": @0}];
 [user.cars addObject:car error:nil];
-[user save];
-
 user.cars # => #<NanoStore::Bag:0x7411410> 
 ```
 
