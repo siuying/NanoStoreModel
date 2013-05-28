@@ -38,7 +38,7 @@ end
 ```
 
 ```objective-c
-@implementation
+@implementation User
 @dynamic name, age, createdAt, cars;
 @end
 ```
