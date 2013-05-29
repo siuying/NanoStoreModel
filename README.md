@@ -30,7 +30,7 @@ Define property normally as you would for your subclass of NSMObject.
 @end
 
 @implementation User
-@dynamic name, age, createdAt;
+@dynamic name, age, createdAt, cars;
 @end
 ```
 
