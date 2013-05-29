@@ -10,5 +10,8 @@
 
 @class NSMObjectMetadata;
 
+// setup metadata for class
 NSMObjectMetadata * NSMSetMetadataForClass(Class klass,void(^definition)(NSMObjectMetadata *));
+
+// add class method to the model class
 void NSMInitializeClass(Class klass);

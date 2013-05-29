@@ -1,21 +1,21 @@
 //
-//  NanoStoreMacro.h
+//  NanoStoreModelMacro.h
 //  NanoStoreModel
 //
 //  Created by Francis Chong on 29/5/13.
 //  Copyright (c) 2013 Ignition Soft. All rights reserved.
 //
 
-#ifndef NanoStoreModel_NanoStoreMacro_h
-#define NanoStoreModel_NanoStoreMacro_h
+#ifndef NanoStoreModel_NanoStoreModelMacro_h
+#define NanoStoreModel_NanoStoreModelMacro_h
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
-#define NS_MODEL(definition) \
+#define MODEL(definition) \
 \
 +(NSMObjectMetadata*) metadata {\
-    NSMSetMetadataForClass(self, definition);\
+    return NSMSetMetadataForClass(self, definition);\
 }\
 \
 + (void) initialize {\
