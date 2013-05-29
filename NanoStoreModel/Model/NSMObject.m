@@ -31,11 +31,11 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
 }
 
 -(BOOL) saveStoreAndReturnError:(NSError *__autoreleasing *)outError {
-    if (![self modelShouldSaveAndReturnError:outError]) {
+    if (![self shouldSaveAndReturnError:outError]) {
         return NO;
     }
 
-    [self modelWillSave];
+    [self willSave];
 
     __block NSFNanoStore* store = self.store;
 
@@ -64,7 +64,7 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
     if (success) {
         success = [store commitTransactionAndReturnError:outError];
         if (success) {
-            [self modelDidSave];
+            [self didSave];
         }
     } else {
         [store rollbackTransactionAndReturnError:nil];
@@ -102,15 +102,15 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
 
 #pragma mark - Callbacks
 
--(BOOL) modelShouldSaveAndReturnError:(NSError * __autoreleasing *)error {
+-(BOOL) shouldSaveAndReturnError:(NSError * __autoreleasing *)error {
     return YES;
 }
 
--(void) modelWillSave {
+-(void) willSave {
     
 }
 
--(void) modelDidSave {
+-(void) didSave {
     
 }
 

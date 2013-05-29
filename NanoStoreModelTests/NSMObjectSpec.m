@@ -136,7 +136,7 @@ describe(@"NSMObject", ^{
         describe(@"-modelShouldSaveAndReturnError:", ^{
             it(@"should not save if modelShouldSaveAndReturnError: return NO", ^{
                 User* user = [User model];
-                expect([user modelShouldSaveAndReturnError:nil]).to.beFalsy();
+                expect([user shouldSaveAndReturnError:nil]).to.beFalsy();
                 expect([user saveStoreAndReturnError:nil]).to.beFalsy();
             });
         });

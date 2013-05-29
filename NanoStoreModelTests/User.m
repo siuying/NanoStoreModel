@@ -19,7 +19,7 @@ MODEL(^(NSMObjectMetadata* meta){
     [meta bag:@"cars"];
 })
 
--(BOOL) modelShouldSaveAndReturnError:(NSError * __autoreleasing *)error {
+-(BOOL) shouldSaveAndReturnError:(NSError * __autoreleasing *)error {
     if (!self.name) {
         if (error) {
             *error = [NSError errorWithDomain:@"User" code:0 userInfo:@{@"description": @"missing required field"}];
