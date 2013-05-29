@@ -1,11 +1,11 @@
 NanoStoreModel
 ==============
 
-Quick and easy way to use NanoStore as your model. 
+Quick and easy way to use [NanoStore](https://github.com/tciuro/NanoStore) objects as your model. 
 
 NanoStoreModel composite of two parts: a model DSL and a thin layer of Objective-C classes provide dynamic attributes accessor, initializer, finders, helpers and KVO.
 
-Stage: Concept stage only.
+Stage: Proof of concept. Don't use it in production yet, but try it out and see if it works!
 
 ## How It Works
 
@@ -56,6 +56,8 @@ user.createdAt = [NSDate date];
 ```
 
 ### Association
+
+Light weight association with Bags.
 
 ```objective-c
 User *user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20, @"createdAt": [NSDate date]}];
