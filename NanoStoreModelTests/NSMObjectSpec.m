@@ -45,6 +45,13 @@ describe(@"NSMObject", ^{
             expect(user2.age).to.equal(user.age);
             expect(user2.createdAt).to.equal(user.createdAt);
         });
+
+        it(@"should accept nil in getter", ^{
+            User* user = (User*) [User nanoObjectWithDictionary:@{@"name": @"Joe", @"age": @20}];
+            user.name = nil;
+            expect(user.name).to.beNil();
+            expect(user.age).to.equal(@20);
+        });
     });
     
     describe(@"KVO", ^{
