@@ -64,3 +64,28 @@ Cat *car = [Cat modelWithDictionary:@{@"name": @"Mini", @"age": @0}];
 user.cars // => #<NanoStore::Bag:0x7411410> 
 ```
 
+### Lifecycle Callbacks
+
+Override lifecycle callbacks for custom validation or events.
+
+```objective-c
+-(BOOL) shouldSaveAndReturnError:(NSError * __autoreleasing *)error {
+    if (!self.name) {
+        if (error) {
+            *error = [NSError errorWithDomain:@"User" code:0 userInfo:@{@"description": @"missing required field"}];
+        }
+        return NO;
+    }
+    return YES;
+}
+
+-(void) willSave {
+  NSLog(@"will save: %@", self);
+}
+
+-(void) didSave {
+  NSLog(@"did save: %@", self.key);
+}
+
+```
+

@@ -13,6 +13,12 @@
 
 @property (nonatomic, strong) NSDictionary* nsmBags;
 
+// Create a model using dictionary
++(id) modelWithDictionary:(NSDictionary*)dictionary;
+
+// Create a model
++(id) model;
+
 // save this objects, and all bags related to this object
 -(BOOL) saveStoreAndReturnError:(NSError * __autoreleasing *)error;
 
@@ -21,10 +27,6 @@
 
 // Set the store used to save this object
 +(void) setStore:(NSFNanoStore*)store;
-
-+(id) modelWithDictionary:(NSDictionary*)dictionary;
-
-+(id) model;
 
 @end
 
