@@ -34,7 +34,7 @@ Define property normally as you would for your subclass of NSMObject.
 @end
 ```
 
-### Using the Model
+### Using Model
 
 ```objective-c
 // Instantiate a NanoStore and open it
@@ -58,6 +58,9 @@ user.createdAt = [NSDate date];
 
 ### Using Bags
 
+When you set a bag to a NSFNanoBag property, the key of the bag will be saved to the model. Later when you retrieve the model, the corresponding bag will be automatically retrieved. 
+
+You can add any object conforming to the NSFNanoObjectProtocol protocol to the bag.
 
 ```objective-c
 // Instantiate a NanoStore and open it
