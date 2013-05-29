@@ -3,44 +3,26 @@ NanoStoreModel
 
 Quick and easy way to use NanoStore as your model. 
 
-This is set of tools: a model DSL, a Objective-C model class generator and a thin layer of Objective-C classes provide dynamic attributes accessor, initializer, finders, helpers and KVO.
-
-Something like [NanoStoreInMotion](https://github.com/siuying/NanoStoreInMotion) but in Objective-C, and more powerful.
+NanoStoreModel composite of two parts: a model DSL and a thin layer of Objective-C classes provide dynamic attributes accessor, initializer, finders, helpers and KVO.
 
 Stage: Concept stage only.
 
 ## How It Works
 
 1. Define your model class in the ruby DSL.
-2. Generate Objective-C classes on compile time.
-3. Use the generated Obejctive-C classes, or subclass them.
+2. Use the model class directly or subclass them.
 
 ### Define a Model
 
-```ruby
-class User < NanoStore::Model
-  attribute :name, :type => :string
-  attribute :age, :type => :number
-  attribute :created_at, :type => :date
-  bag :cars
-end
-```
-
-### Generated Model
-
 ```objective-c
-@interface User : NSMNanoObject
-@property (strong) NSString *name;
-@property (strong) NSNumber *age;
-@property (strong) NSDate *createdAt;
-@property (strong) NSFNanoBag *cars;
-@end
-```
+ModelBegin(User)
 
-```objective-c
-@implementation User
-@dynamic name, age, createdAt, cars;
-@end
+Property(name)
+Property(age)
+Property(createdAt)
+Bag(cars)
+
+ModelEnd
 ```
 
 ### Using the Model
