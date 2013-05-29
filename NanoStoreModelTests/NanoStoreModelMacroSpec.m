@@ -27,6 +27,7 @@ MODEL(^(NSMObjectMetadata* meta){
     [meta attribute:@"createdAt"];
     [meta bag:@"cars"];
 })
+
 @end
 
 #pragma - End Sample Model Definition
@@ -34,7 +35,7 @@ MODEL(^(NSMObjectMetadata* meta){
 SpecBegin(NanoStoreModelMacro)
 
 describe(@"NanoStoreModelMacro", ^{
-    describe(@"define model metadata", ^{
+    it(@"should define model metadata", ^{
         NSMObjectMetadata* metadata = [User metadata];
         expect(metadata.attributes).haveCountOf(3);
         expect(metadata.attributes).to.contain(@"name");
@@ -42,6 +43,19 @@ describe(@"NanoStoreModelMacro", ^{
         expect(metadata.attributes).to.contain(@"createdAt");
         expect(metadata.bags).haveCountOf(1);
         expect(metadata.bags).to.contain(@"cars");
+    });
+    
+    describe(@"+modelWithDictionary:", ^{
+        it(@"should define model initializer", ^{
+            User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
+            expect(user).toNot.beNil();
+        });
+        
+        it(@"should set values with initializer", ^{
+            User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
+            expect(user.name).to.equal(@"Joe");
+            expect(user.age).to.equal(@20);
+        });
     });
 });
 

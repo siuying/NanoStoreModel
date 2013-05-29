@@ -14,6 +14,10 @@
 
 #define MODEL(definition) \
 \
++(id) modelWithDictionary:(NSDictionary*)dictionary {\
+return [[self class] nanoObjectWithDictionary:dictionary];\
+}\
+\
 +(NSMObjectMetadata*) metadata {\
     return NSMSetMetadataForClass(self, definition);\
 }\
