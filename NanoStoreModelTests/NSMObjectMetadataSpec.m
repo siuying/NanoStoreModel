@@ -33,7 +33,7 @@ describe(@"NSMObjectMetadata", ^{
         it(@"should add bag to metadata", ^{
             expect([metadata bags]).haveCountOf(0);
             [metadata bag:@"cars"];
-            
+
             expect([metadata bags]).haveCountOf(1);
             expect([metadata bags]).to.contain(@"cars");
         });

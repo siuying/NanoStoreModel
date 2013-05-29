@@ -22,6 +22,9 @@ void * NSMNanoStoreDefaultStoreKey = &NSMNanoStoreDefaultStoreKey;
     if (!store) {
         store = [NSFNanoStore createAndOpenStoreWithType:NSFMemoryStoreType path:nil error:nil];
         [[self class] setDefaultStore:store];
+        
+        // if you use the default store, you probably want to open it by default
+        [store openWithError:nil];
     }
     return store;
 }

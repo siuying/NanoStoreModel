@@ -15,5 +15,4 @@
 
 - (void) attribute:(NSString*)attrName;
 - (void) bag:(NSString*)bagName;
-
 @end

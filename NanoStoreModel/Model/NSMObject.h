@@ -10,6 +10,11 @@
 
 @interface NSMObject : NSFNanoObject
 
+@property (nonatomic, strong) NSDictionary* nsmBags;
+
+// save this objects, and all bags related to this object
+-(BOOL) saveStoreAndReturnError:(NSError * __autoreleasing *)error;
+
 // The store used to save this object
 +(NSFNanoStore*) store;
 

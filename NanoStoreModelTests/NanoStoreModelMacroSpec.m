@@ -30,11 +30,27 @@ MODEL(^(NSMObjectMetadata* meta){
 
 @end
 
+@interface Car : NSMObject
+@property (strong) NSString* name;
+@end
+
+@implementation Car
+@dynamic name;
+MODEL(^(NSMObjectMetadata* meta){
+    [meta attribute:@"name"];
+})
+
+@end
+
 #pragma - End Sample Model Definition
 
 SpecBegin(NanoStoreModelMacro)
 
 describe(@"NanoStoreModelMacro", ^{
+    before(^{
+        [NSFNanoStore setDefaultStore:nil];
+    });
+
     it(@"should define model metadata", ^{
         NSMObjectMetadata* metadata = [User metadata];
         expect(metadata.attributes).haveCountOf(3);
@@ -60,6 +76,31 @@ describe(@"NanoStoreModelMacro", ^{
             expect(user.name).to.equal(@"Joe");
             expect(user.age).to.equal(@36);
             expect(user.createdAt).to.equal(now);
+        });
+
+        it(@"should setup bag getter and can use it to persists data", ^{
+            User* user = [User model];
+            user.name = @"Joe";
+            expect(user.cars).to.beInstanceOf([NSFNanoBag class]);
+            [user.cars addObject:[Car modelWithDictionary:@{@"name": @"Honda"}] error:nil];
+            expect([user.cars count]).to.equal(1);
+
+            [user.cars addObject:[Car modelWithDictionary:@{@"name": @"Nessan"}] error:nil];
+            expect([user.cars count]).to.equal(2);
+            [user saveStoreAndReturnError:nil];
+
+            NSFNanoSearch *search = [NSFNanoSearch searchWithStore:user.store];
+            search.attribute = @"name";
+            search.match = NSFEqualTo;
+            search.value = @"Joe";
+            
+            // Returns a dictionary with the UUID of the object (key) and the NanoObject (value).
+            NSDictionary *searchResults = [search searchObjectsWithReturnType:NSFReturnObjects error:nil];
+            NSArray* users = [searchResults allValues];
+            expect(users).haveCountOf(1);
+
+            User* user2 = [users objectAtIndex:0];
+            expect([user2.cars count]).to.equal(2);
         });
     });
 });

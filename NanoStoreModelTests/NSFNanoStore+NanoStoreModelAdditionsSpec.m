@@ -14,6 +14,10 @@
 SpecBegin(NSFNanoStoreNanoStoreModelAdditions)
 
 describe(@"NSFNanoStoreNanoStoreModelAdditions", ^{
+    before(^{
+        [NSFNanoStore setDefaultStore:nil];
+    });
+
     describe(@"+defaultStore", ^{
         it(@"should return default store (memory) by default", ^{
             expect([NSFNanoStore defaultStore]).to.beInstanceOf([NSFNanoStore class]);
