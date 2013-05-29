@@ -63,12 +63,22 @@ describe(@"NSMObject", ^{
             
             [user.cars addObject:[Car modelWithDictionary:@{@"name": @"Nessan"}] error:nil];
             expect([user.cars count]).to.equal(2);
+        });
+    });
+
+    describe(@"-saveStoreAndReturnError:", ^{
+        it(@"should persists attribute", ^{
+            User* user = [User model];
+            user.name = @"Jone";
+            [user.cars addObject:[Car modelWithDictionary:@{@"name": @"Honda"}] error:nil];
+            [user.cars addObject:[Car modelWithDictionary:@{@"name": @"Nessan"}] error:nil];
             [user saveStoreAndReturnError:nil];
+            expect(user.store).toNot.beNil();
             
             NSFNanoSearch *search = [NSFNanoSearch searchWithStore:user.store];
             search.attribute = @"name";
             search.match = NSFEqualTo;
-            search.value = @"Joe";
+            search.value = @"Jone";
             
             // Returns a dictionary with the UUID of the object (key) and the NanoObject (value).
             NSDictionary *searchResults = [search searchObjectsWithReturnType:NSFReturnObjects error:nil];
@@ -77,12 +87,6 @@ describe(@"NSMObject", ^{
             
             User* user2 = [users objectAtIndex:0];
             expect([user2.cars count]).to.equal(2);
-        });
-    });
-    
-    describe(@"-saveStoreAndReturnError:", ^{
-        it(@"should persists attribute", ^{
-        
         });
     });
     

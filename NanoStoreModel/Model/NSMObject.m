@@ -20,10 +20,9 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
 @implementation NSMObject
 
 -(NSMutableDictionary*) nsmMutableBags {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!_nsmMutableBags) {
         _nsmMutableBags = [NSMutableDictionary dictionary];
-    });
+    }
     return _nsmMutableBags;
 }
 
@@ -51,8 +50,10 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
                 *stop = YES;
             }
         }];
+        if (success) {
+            success = [store saveStoreAndReturnError:outError];
+        }
     }
-    success = [store saveStoreAndReturnError:outError];
 
     if (success) {
         success = [store commitTransactionAndReturnError:outError];
