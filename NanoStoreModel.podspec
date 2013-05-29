@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios, '5.0'
   spec.license = 'MIT'
-  spec.source = { :git => 'git://github.com/siuying/NanoStoreModel.git', :tag => spec.version.to_s }
+  spec.source = { :git => 'https://github.com/siuying/NanoStoreModel.git', :tag => spec.version.to_s }
 
   spec.source_files = '   NanoStoreModel/Model/*.{h,m}'
   spec.requires_arc = true
