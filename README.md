@@ -9,7 +9,7 @@ Stage: Proof of concept. Don't use it in production yet, but try it out and see 
 
 ## How It Works
 
-1. Define your model class in the ruby DSL.
+1. Define your model.
 2. Use the model class directly or subclass them.
 
 ### Define a Model
