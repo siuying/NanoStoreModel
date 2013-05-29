@@ -21,22 +21,24 @@ describe(@"NSMObject", ^{
         [NSFNanoStore setDefaultStore:nil];
     });
     
-    describe(@"+store", ^{
-        it(@"should return default store (memory) by default", ^{
-            expect([NSMObject store]).to.equal([NSFNanoStore defaultStore]);
+    describe(@"store", ^{
+        describe(@"+store", ^{
+            it(@"should return default store (memory) by default", ^{
+                expect([NSMObject store]).to.equal([NSFNanoStore defaultStore]);
+            });
+        });
+        
+        describe(@"+setStore:", ^{
+            it(@"should set store to a different store", ^{
+                NSFNanoStore* store = [NSFNanoStore createStoreWithType:NSFMemoryStoreType path:nil];
+                [NSMObject setStore:store];
+                
+                expect([NSMObject store]).to.equal(store);
+                expect([NSMObject store]).toNot.equal([NSFNanoStore defaultStore]);
+            });
         });
     });
 
-    describe(@"+setStore:", ^{
-        it(@"should set store to a different store", ^{
-            NSFNanoStore* store = [NSFNanoStore createStoreWithType:NSFMemoryStoreType path:nil];
-            [NSMObject setStore:store];
-
-            expect([NSMObject store]).to.equal(store);
-            expect([NSMObject store]).toNot.equal([NSFNanoStore defaultStore]);
-        });
-    });
-    
     describe(@"+modelWithDictionary:", ^{
         it(@"should define model initializer", ^{
             User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
@@ -89,7 +91,7 @@ describe(@"NSMObject", ^{
             expect([user2.cars count]).to.equal(2);
         });
     });
-    
+
     describe(@"+metadata", ^{
         it(@"should return model metadata", ^{
             NSMObjectMetadata* metadata = [User metadata];
@@ -100,6 +102,22 @@ describe(@"NSMObject", ^{
             expect(metadata.bags).haveCountOf(1);
             expect(metadata.bags).to.contain(@"cars");
         });        
+    });
+    
+    describe(@"callbacks", ^{
+        it(@"should call the callbacks in lifecycle", ^{
+            User* user = [User model];
+            user.name = @"Jone";
+            [user saveStoreAndReturnError:nil];
+        });
+
+        describe(@"-modelShouldSaveAndReturnError:", ^{
+            it(@"should not save if modelShouldSaveAndReturnError: return NO", ^{
+                User* user = [User model];
+                expect([user modelShouldSaveAndReturnError:nil]).to.beFalsy();
+                expect([user saveStoreAndReturnError:nil]).to.beFalsy();
+            });
+        });
     });
 });
 

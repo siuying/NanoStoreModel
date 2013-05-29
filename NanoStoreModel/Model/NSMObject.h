@@ -34,3 +34,15 @@
 
 @end
 
+@interface NSMObject (Callbacks)
+
+// call before the saveStoreAndReturnError: is actually call, if return NO, the model will not save, optionally return error to indicate the cause
+-(BOOL) modelShouldSaveAndReturnError:(NSError * __autoreleasing *)error;
+
+// call before the saveStoreAndReturnError: is actually saving the data
+-(void) modelWillSave;
+
+// call after the saveStoreAndReturnError: save the data successfully
+-(void) modelDidSave;
+
+@end

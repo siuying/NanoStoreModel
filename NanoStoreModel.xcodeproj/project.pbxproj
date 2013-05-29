@@ -341,10 +341,7 @@
 		54B3E34C1755DE83000FB40E /* NanoStoreModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				54B3E43817560944000FB40E /* User.h */,
-				54B3E43917560944000FB40E /* User.m */,
-				54B3E43B1756096F000FB40E /* Car.h */,
-				54B3E43C1756096F000FB40E /* Car.m */,
+				54B3E43E17560C24000FB40E /* TestModels */,
 				54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */,
 				54B3E43317560042000FB40E /* NSMObjectSpec.m */,
 				54B3E4241755E4C6000FB40E /* NSMObjectMetadataSpec.m */,
@@ -563,6 +560,17 @@
 				54B3E4041755E49F000FB40E /* EXPMatchers.h */,
 			);
 			path = matchers;
+			sourceTree = "<group>";
+		};
+		54B3E43E17560C24000FB40E /* TestModels */ = {
+			isa = PBXGroup;
+			children = (
+				54B3E43817560944000FB40E /* User.h */,
+				54B3E43917560944000FB40E /* User.m */,
+				54B3E43B1756096F000FB40E /* Car.h */,
+				54B3E43C1756096F000FB40E /* Car.m */,
+			);
+			name = TestModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
