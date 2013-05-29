@@ -14,6 +14,16 @@
 #import "User.h"
 #import "Car.h"
 
+@interface UserObserver : NSObject
+@property (nonatomic, assign) BOOL notified;
+@end
+
+@implementation UserObserver
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    self.notified = YES;
+}
+@end
+
 SpecBegin(NSMObject)
 
 describe(@"NSMObject", ^{
@@ -103,7 +113,19 @@ describe(@"NSMObject", ^{
             expect(metadata.bags).to.contain(@"cars");
         });        
     });
-    
+
+    describe(@"KVO", ^{
+        it(@"should notify KVO observer", ^{
+            UserObserver* observer = [[UserObserver alloc] init];
+            User* user = [User model];
+            [user addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+
+            user.name = @"Jone";
+            expect(observer.notified).to.beTruthy();
+            [user removeObserver:observer forKeyPath:@"name"];
+        });
+    });
+
     describe(@"callbacks", ^{
         it(@"should call the callbacks in lifecycle", ^{
             User* user = [User model];

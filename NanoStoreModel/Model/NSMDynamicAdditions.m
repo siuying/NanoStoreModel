@@ -20,7 +20,9 @@ void NSMObjectAttributeSetter(id self, SEL _cmd, id val) {
     NSMObject* object = self;
     NSString* selector = NSStringFromSelector(_cmd);
     NSString *key = [[selector substringWithRange:NSMakeRange(3, selector.length-4)] lowercaseString];
+    [self willChangeValueForKey:key];
     [object setObject:val forKey:key];
+    [self didChangeValueForKey:key];
 }
 
 // Implementation of attribute getter (<AttributeName>)
