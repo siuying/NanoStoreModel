@@ -17,6 +17,9 @@
 +(id) modelWithDictionary:(NSDictionary*)dictionary {\
 return [[self class] nanoObjectWithDictionary:dictionary];\
 }\
++(id) model {\
+return [[self class] nanoObject];\
+}\
 \
 +(NSMObjectMetadata*) metadata {\
     return NSMSetMetadataForClass(self, definition);\

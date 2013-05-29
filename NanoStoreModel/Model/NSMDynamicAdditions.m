@@ -8,10 +8,26 @@
 
 #import "NSMDynamicAdditions.h"
 #import "NSMObjectMetadata.h"
+#import "NSMObject.h"
 
 #import <objc/runtime.h>
 
 void * NSMObjectMetadataKey = &NSMObjectMetadataKey;
+
+// Implementation of attribute setter (set<AttributeName>:)
+void NSMObjectAttributeSetter(id self, SEL _cmd, id val) {
+    NSMObject* object = self;
+    NSString* selector = NSStringFromSelector(_cmd);
+    NSString *key = [[selector substringWithRange:NSMakeRange(3, selector.length-4)] lowercaseString];
+    [object setObject:val forKey:key];
+}
+
+// Implementation of attribute getter (<AttributeName>)
+id NSMObjectAttributeGetter(id self, SEL _cmd) {
+    NSMObject* object = self;
+    NSString *key = [NSStringFromSelector(_cmd) lowercaseString];
+    return [object objectForKey:key];
+}
 
 NSMObjectMetadata * NSMSetMetadataForClass(Class klass,void(^definition)(NSMObjectMetadata*)) {
     NSMObjectMetadata* metadata = (NSMObjectMetadata *)objc_getAssociatedObject(klass, &NSMObjectMetadataKey);
@@ -29,4 +45,10 @@ NSMObjectMetadata * NSMSetMetadataForClass(Class klass,void(^definition)(NSMObje
 }
 
 void NSMInitializeClass(Class klass) {
+    NSMObjectMetadata *metadata = [klass performSelector:@selector(metadata)];
+    for (NSString *attribute in metadata.attributes) {
+        NSString *setterName = [NSString stringWithFormat:@"set%@%@:", [[attribute substringWithRange:NSMakeRange(0, 1)] uppercaseString], [attribute substringWithRange:NSMakeRange(1, attribute.length-1)]];
+        class_addMethod(klass, NSSelectorFromString(setterName), (IMP) NSMObjectAttributeSetter, "v@:@");
+        class_addMethod(klass, NSSelectorFromString(attribute), (IMP) NSMObjectAttributeGetter, "@@:");
+    }
 }

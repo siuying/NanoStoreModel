@@ -14,7 +14,7 @@
 
 @interface User : NSMObject
 @property (strong) NSString* name;
-@property (strong) NSString* age;
+@property (strong) NSNumber* age;
 @property (strong) NSDate* createdAt;
 @property (strong) NSFNanoBag* cars;
 @end
@@ -44,17 +44,22 @@ describe(@"NanoStoreModelMacro", ^{
         expect(metadata.bags).haveCountOf(1);
         expect(metadata.bags).to.contain(@"cars");
     });
-    
+
     describe(@"+modelWithDictionary:", ^{
         it(@"should define model initializer", ^{
             User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
             expect(user).toNot.beNil();
         });
         
-        it(@"should set values with initializer", ^{
-            User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
+        it(@"should setup attribute getter and setter", ^{
+            User* user = [User model];
+            user.name = @"Joe";
+            user.age = @36;
+            NSDate* now = [NSDate date];
+            user.createdAt = now;
             expect(user.name).to.equal(@"Joe");
-            expect(user.age).to.equal(@20);
+            expect(user.age).to.equal(@36);
+            expect(user.createdAt).to.equal(now);
         });
     });
 });
