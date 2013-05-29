@@ -10,7 +10,7 @@
 
 @implementation User
 
-@dynamic name, age, createdAt;
+@dynamic name, age, createdAt, cars;
 
 @end
 
