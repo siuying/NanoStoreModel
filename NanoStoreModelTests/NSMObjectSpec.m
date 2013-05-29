@@ -38,7 +38,7 @@ describe(@"NSMObject", ^{
     
     describe(@"attributes", ^{
         it(@"should create getter and setters", ^{
-            User* user = (User*) [User nanoObject];
+            User* user = (User*) [User model];
             expect([user respondsToSelector:@selector(name)]).to.beTruthy();
             expect([user respondsToSelector:@selector(setName:)]).to.beTruthy();
             
@@ -47,14 +47,14 @@ describe(@"NSMObject", ^{
             user.age = @30;
             user.createdAt = now;
             
-            User* user2 = (User*) [User nanoObjectWithDictionary:[user nanoObjectDictionaryRepresentation]];
+            User* user2 = (User*) [User modelWithDictionary:[user nanoObjectDictionaryRepresentation]];
             expect(user2.name).to.equal(user.name);
             expect(user2.age).to.equal(user.age);
             expect(user2.createdAt).to.equal(user.createdAt);
         });
         
         it(@"should accept nil in getter", ^{
-            User* user = (User*) [User nanoObjectWithDictionary:@{@"name": @"Joe", @"age": @20}];
+            User* user = (User*) [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
             user.name = nil;
             expect(user.name).to.beNil();
             expect(user.age).to.equal(@20);
@@ -63,7 +63,7 @@ describe(@"NSMObject", ^{
 
     describe(@"bags", ^{
         it(@"should create bags getter and setters", ^{
-            User* user = (User*) [User nanoObject];
+            User* user = [User model];
             user.name = @"Joe";
             expect([user respondsToSelector:@selector(cars)]).to.beTruthy();
             expect([user respondsToSelector:@selector(setCars:)]).to.beTruthy();
@@ -76,7 +76,7 @@ describe(@"NSMObject", ^{
         });
         
         it(@"should accept nil in getter", ^{
-            User* user = (User*) [User nanoObjectWithDictionary:@{@"name": @"Joe", @"age": @20}];
+            User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20}];
             user.name = nil;
             expect(user.name).to.beNil();
             expect(user.age).to.equal(@20);
@@ -85,7 +85,7 @@ describe(@"NSMObject", ^{
     
     describe(@"persistence", ^{
         it(@"should save attributes and bags", ^{
-            User* user = (User*) [User nanoObjectWithDictionary:@{@"name": @"Joe", @"age": @18, @"createdAt": [NSDate date]}];
+            User* user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @18, @"createdAt": [NSDate date]}];
             user.cars = [NSFNanoBag bagWithName:@"hello"];
             [nanoStore addObject:user error:nil];
             [nanoStore addObject:user.cars error:nil];
@@ -114,7 +114,7 @@ describe(@"NSMObject", ^{
     describe(@"KVO", ^{
         it(@"should notify KVO observer", ^{
             UserObserver* observer = [[UserObserver alloc] init];
-            User* user = (User*) [User nanoObject];
+            User* user = (User*) [User model];
             [user addObserver:observer
                    forKeyPath:@"name"
                       options:NSKeyValueObservingOptionNew

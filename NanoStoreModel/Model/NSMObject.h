@@ -9,4 +9,11 @@
 #import "NSFNanoObject.h"
 
 @interface NSMObject : NSFNanoObject
+
++(id) model;
+
++(id) modelWithDictionary:(NSDictionary*)dictionary;
+
++(id) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key;
+
 @end

@@ -141,4 +141,16 @@ void NSMObjectBagSetter(id self, SEL _cmd, id val) {
     [self setupAccessors];
 }
 
++(id) model {
+    return [self nanoObject];
+}
+
++(id) modelWithDictionary:(NSDictionary*)dictionary {
+    return [self nanoObjectWithDictionary:dictionary];
+}
+
++(id) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key {
+    return [self nanoObjectWithDictionary:dictionary key:key];
+}
+
 @end
