@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'NanoStoreModel'
-  spec.version = '0.1.0'
+  spec.version = '0.2.0'
 
   spec.platform = :ios, '5.0'
   spec.license = 'MIT'

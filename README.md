@@ -17,8 +17,8 @@ Stage: Proof of concept. Don't use it in production yet, but try it out and see 
 Define property normally as you would for your subclass of NSMObject. 
 
 
-- For the properties that are of supported types (NSArray, NSDictionary, NSString, NSData, NSDate, NSNumber) will be persisted by store the value. 
-- For the properties that are NSFNanoBag will be persisted by store the key of the bag.
+- For the properties that are of supported types (NSArray, NSDictionary, NSString, NSData, NSDate, NSNumber), the values will be persisted. 
+- For the properties that are NSFNanoBag, the key of the bag will be persisted.
 - Other properties are ignored.
 
 ```objective-c
