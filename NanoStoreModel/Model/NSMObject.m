@@ -62,6 +62,14 @@ void * NSMObjectStoreKey = &NSMObjectStoreKey;
     return success;
 }
 
++(id) modelWithDictionary:(NSDictionary*)dictionary {
+    return [[self class] nanoObjectWithDictionary:dictionary];
+}
+
++(id) model {
+    return [[self class] nanoObject];
+}
+
 // The default store used to save this object
 +(NSFNanoStore*) store {
     NSFNanoStore* store = objc_getAssociatedObject([self class], &NSMObjectStoreKey);

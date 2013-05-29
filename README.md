@@ -15,24 +15,21 @@ Stage: Concept stage only.
 ### Define a Model
 
 ```objective-c
-@interface User : NSModelObject
-@property (strong) NSString* user;
-@property (strong) NSString* age;
+@interface User : NSMObject
+@property (strong) NSString* name;
+@property (strong) NSNumber* age;
 @property (strong) NSDate* createdAt;
 @property (strong) NSFNanoBag* cars;
 @end
 
 @implementation User
-
-@dynamic user, age, createdAt, cars;
-
-MODEL(^(NanoStoreModelMetadata* metadata){
-  [metadata field:@"name"];
-  [metadata field:@"age"];
-  [metadata field:@"createdAt"];
-  [metadata bag:@"cars"];
+@dynamic name, age, createdAt, cars;
+MODEL(^(NSMObjectMetadata* meta){
+    [meta attribute:@"name"];
+    [meta attribute:@"age"];
+    [meta attribute:@"createdAt"];
+    [meta bag:@"cars"];
 })
-
 @end
 ```
 
@@ -42,14 +39,17 @@ MODEL(^(NanoStoreModelMetadata* metadata){
 // Instantiate a NanoStore and open it
 NSFNanoStore *nanoStore = [NSFNanoStore createAndOpenStoreWithType:NSFMemoryStoreType path:nil error:nil];
 
+// Make the User class use the NanoStore
+[User setStore:nanoStore];
+
 // Create an User
-User *user = [User user];
+User *user = [User model];
 user.name = @"Joe";
 user.age = @20;
 user.createdAt = [NSDate date];
 
-// Add it to the document store
-[nanoStore addObject:user error:nil];
+// Save the user
+[user saveStoreAndReturnError:nil];
 
 // Close the document store
 [nanoStore closeWithError:nil];
@@ -58,9 +58,9 @@ user.createdAt = [NSDate date];
 ### Association
 
 ```objective-c
-User *user = [User userWithDictionary:@{@"name": @"Joe", @"age": @20, @"createdAt": [NSDate date]}];
-Cat *car = [Cat carWithDictionary:@{@"name": @"Mini", @"age": @0}];
+User *user = [User modelWithDictionary:@{@"name": @"Joe", @"age": @20, @"createdAt": [NSDate date]}];
+Cat *car = [Cat modelWithDictionary:@{@"name": @"Mini", @"age": @0}];
 [user.cars addObject:car error:nil];
-user.cars # => #<NanoStore::Bag:0x7411410> 
+user.cars // => #<NanoStore::Bag:0x7411410> 
 ```
 

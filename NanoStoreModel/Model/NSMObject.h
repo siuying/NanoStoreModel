@@ -7,6 +7,7 @@
 //
 
 #import "NSFNanoObject.h"
+#import "NSMObjectMetadata.h"
 
 @interface NSMObject : NSFNanoObject
 
@@ -21,4 +22,15 @@
 // Set the store used to save this object
 +(void) setStore:(NSFNanoStore*)store;
 
++(id) modelWithDictionary:(NSDictionary*)dictionary;
+
++(id) model;
+
 @end
+
+@interface NSMObject (Dynamic)
+
++(NSMObjectMetadata*) metadata;
+
+@end
+
