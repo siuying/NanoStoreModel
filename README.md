@@ -85,3 +85,11 @@ user.cars = [NSFNanoBag bag];
 // Close the document store
 [nanoStore closeWithError:nil];
 ```
+
+### More Info
+
+Obviously you will need to check [NanoStore](https://github.com/tciuro/NanoStore) before using NanoStoreModel.
+
+## LICENSE
+
+MIT License, for details please read [LICENSE](https://raw.github.com/siuying/NanoStoreModel/master/LICENSE).
