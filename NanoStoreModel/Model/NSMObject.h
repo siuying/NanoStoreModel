@@ -10,4 +10,10 @@
 
 @interface NSMObject : NSFNanoObject
 
+// The store used to save this object
++(NSFNanoStore*) store;
+
+// Set the store used to save this object
++(void) setStore:(NSFNanoStore*)store;
+
 @end

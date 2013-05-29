@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ignition Soft. All rights reserved.
 //
 
+#import "NSFNanoStore+NanoStoreModelAdditions.h"
 #import "NSMObject.h"
 #import "NSMDynamicAdditions.h"
 #import "NSMObjectMetadata.h"

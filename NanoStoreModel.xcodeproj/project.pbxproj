@@ -88,6 +88,10 @@
 		54B3E4271755E54B000FB40E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3E4261755E54B000FB40E /* libsqlite3.dylib */; };
 		54B3E4281755E5A7000FB40E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3E4261755E54B000FB40E /* libsqlite3.dylib */; };
 		54B3E42F1755E995000FB40E /* NanoStoreModelMacroSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E42E1755E995000FB40E /* NanoStoreModelMacroSpec.m */; };
+		54B3E4321755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */; };
+		54B3E43417560042000FB40E /* NSMObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E43317560042000FB40E /* NSMObjectSpec.m */; };
+		54B3E436175600D7000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */; };
+		54B3E4371756016F000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +245,10 @@
 		54B3E4261755E54B000FB40E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54B3E4291755E7FC000FB40E /* NanoStoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NanoStoreModel.h; path = Model/NanoStoreModel.h; sourceTree = "<group>"; };
 		54B3E42E1755E995000FB40E /* NanoStoreModelMacroSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NanoStoreModelMacroSpec.m; sourceTree = "<group>"; };
+		54B3E4301755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFNanoStore+NanoStoreModelAdditions.h"; path = "Model/NSFNanoStore+NanoStoreModelAdditions.h"; sourceTree = "<group>"; };
+		54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFNanoStore+NanoStoreModelAdditions.m"; path = "Model/NSFNanoStore+NanoStoreModelAdditions.m"; sourceTree = "<group>"; };
+		54B3E43317560042000FB40E /* NSMObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMObjectSpec.m; sourceTree = "<group>"; };
+		54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFNanoStore+NanoStoreModelAdditionsSpec.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +337,8 @@
 		54B3E34C1755DE83000FB40E /* NanoStoreModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */,
+				54B3E43317560042000FB40E /* NSMObjectSpec.m */,
 				54B3E4241755E4C6000FB40E /* NSMObjectMetadataSpec.m */,
 				54B3E42E1755E995000FB40E /* NanoStoreModelMacroSpec.m */,
 				54B3E3AC1755E469000FB40E /* Vendor */,
@@ -425,6 +435,8 @@
 			children = (
 				54B3E39B1755DF18000FB40E /* NSMObject.h */,
 				54B3E39C1755DF18000FB40E /* NSMObject.m */,
+				54B3E4301755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.h */,
+				54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */,
 				54B3E3A41755E2DD000FB40E /* NSMDynamicAdditions.h */,
 				54B3E3A51755E2DD000FB40E /* NSMDynamicAdditions.m */,
 				54B3E3A81755E32D000FB40E /* NSMObjectMetadata.h */,
@@ -671,6 +683,7 @@
 				54B3E39D1755DF18000FB40E /* NSMObject.m in Sources */,
 				54B3E3A61755E2DD000FB40E /* NSMDynamicAdditions.m in Sources */,
 				54B3E3AA1755E32D000FB40E /* NSMObjectMetadata.m in Sources */,
+				54B3E4321755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +743,9 @@
 				54B3E4231755E49F000FB40E /* NSValue+Expecta.m in Sources */,
 				54B3E4251755E4C6000FB40E /* NSMObjectMetadataSpec.m in Sources */,
 				54B3E42F1755E995000FB40E /* NanoStoreModelMacroSpec.m in Sources */,
+				54B3E43417560042000FB40E /* NSMObjectSpec.m in Sources */,
+				54B3E436175600D7000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m in Sources */,
+				54B3E4371756016F000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

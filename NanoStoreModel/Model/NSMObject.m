@@ -7,7 +7,29 @@
 //
 
 #import "NSMObject.h"
+#import <objc/runtime.h>
+#import "NSFNanoStore+NanoStoreModelAdditions.h"
 
 @implementation NSMObject
+
+// The default store used to save this object
++(NSFNanoStore*) store {
+    NSFNanoStore* store = objc_getAssociatedObject([self class], &NSMObjectStoreKey);
+    if (!store) {
+        store = [NSFNanoStore defaultStore];
+        [self setStore:store];
+    }
+    return store;
+}
+
+// Set the default store used to save this object
++(void) setStore:(NSFNanoStore*)store {
+    objc_setAssociatedObject (
+                              [self class],
+                              &NSMObjectStoreKey,
+                              store,
+                              OBJC_ASSOCIATION_RETAIN
+                              );
+}
 
 @end
