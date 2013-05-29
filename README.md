@@ -15,14 +15,25 @@ Stage: Concept stage only.
 ### Define a Model
 
 ```objective-c
-ModelBegin(User)
+@interface User : NSModelObject
+@property (strong) NSString* user;
+@property (strong) NSString* age;
+@property (strong) NSDate* createdAt;
+@property (strong) NSFNanoBag* cars;
+@end
 
-Property(name)
-Property(age)
-Property(createdAt)
-Bag(cars)
+@implementation User
 
-ModelEnd
+@dynamic user, age, createdAt, cars;
+
+MODEL(^(NanoStoreModelMetadata* metadata){
+  [metadata field:@"name"];
+  [metadata field:@"age"];
+  [metadata field:@"createdAt"];
+  [metadata bag:@"cars"];
+})
+
+@end
 ```
 
 ### Using the Model

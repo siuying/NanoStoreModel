@@ -1,3 +1,9 @@
 [submodule "Vendor/NanoStore"]
 	path = Vendor/NanoStore
 	url = git://github.com/tciuro/NanoStore.git
+[submodule "Vendor/Specta"]
+	path = Vendor/Specta
+	url = git://github.com/petejkim/specta.git
+[submodule "Vendor/Expecta"]
+	path = Vendor/Expecta
+	url = git://github.com/petejkim/expecta.git
