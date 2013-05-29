@@ -10,8 +10,4 @@
 
 @implementation Car
 @dynamic name;
-MODEL(^(NSMObjectMetadata* meta){
-    [meta attribute:@"name"];
-})
-
 @end

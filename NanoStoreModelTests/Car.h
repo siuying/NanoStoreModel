@@ -13,6 +13,4 @@
 
 @property (strong) NSString* name;
 
-+(NSMObjectMetadata*) metadata;
-
 @end

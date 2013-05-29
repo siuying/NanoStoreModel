@@ -16,7 +16,5 @@
 @property (strong) NSDate* createdAt;
 @property (strong) NSFNanoBag* cars;
 
-+(NSMObjectMetadata*) metadata;
-
 @end
 

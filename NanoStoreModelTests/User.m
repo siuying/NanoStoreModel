@@ -12,13 +12,6 @@
 
 @dynamic name, age, createdAt, cars;
 
-MODEL(^(NSMObjectMetadata* meta){
-    [meta attribute:@"name"];
-    [meta attribute:@"age"];
-    [meta attribute:@"createdAt"];
-    [meta bag:@"cars"];
-})
-
 -(BOOL) shouldSaveAndReturnError:(NSError * __autoreleasing *)error {
     if (!self.name) {
         if (error) {

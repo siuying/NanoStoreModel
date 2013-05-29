@@ -46,8 +46,6 @@
 		54B3E39E1755DF18000FB40E /* NSMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E39C1755DF18000FB40E /* NSMObject.m */; };
 		54B3E3A61755E2DD000FB40E /* NSMDynamicAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3A51755E2DD000FB40E /* NSMDynamicAdditions.m */; };
 		54B3E3A71755E2DD000FB40E /* NSMDynamicAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3A51755E2DD000FB40E /* NSMDynamicAdditions.m */; };
-		54B3E3AA1755E32D000FB40E /* NSMObjectMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3A91755E32D000FB40E /* NSMObjectMetadata.m */; };
-		54B3E3AB1755E32D000FB40E /* NSMObjectMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3A91755E32D000FB40E /* NSMObjectMetadata.m */; };
 		54B3E3C11755E477000FB40E /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3B01755E477000FB40E /* Specta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		54B3E3C21755E477000FB40E /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3B41755E477000FB40E /* SpectaUtility.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		54B3E3C31755E477000FB40E /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E3B61755E477000FB40E /* SPTExample.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -84,13 +82,9 @@
 		54B3E4211755E49F000FB40E /* EXPMatchers+raise.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4011755E49F000FB40E /* EXPMatchers+raise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		54B3E4221755E49F000FB40E /* EXPMatchers+raiseWithReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4031755E49F000FB40E /* EXPMatchers+raiseWithReason.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		54B3E4231755E49F000FB40E /* NSValue+Expecta.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4071755E49F000FB40E /* NSValue+Expecta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		54B3E4251755E4C6000FB40E /* NSMObjectMetadataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4241755E4C6000FB40E /* NSMObjectMetadataSpec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		54B3E4271755E54B000FB40E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3E4261755E54B000FB40E /* libsqlite3.dylib */; };
 		54B3E4281755E5A7000FB40E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3E4261755E54B000FB40E /* libsqlite3.dylib */; };
-		54B3E4321755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */; };
 		54B3E43417560042000FB40E /* NSMObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E43317560042000FB40E /* NSMObjectSpec.m */; };
-		54B3E436175600D7000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */; };
-		54B3E4371756016F000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */; };
 		54B3E43A17560944000FB40E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E43917560944000FB40E /* User.m */; };
 		54B3E43D1756096F000FB40E /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B3E43C1756096F000FB40E /* Car.m */; };
 /* End PBXBuildFile section */
@@ -159,11 +153,8 @@
 		54B3E3831755DEBA000FB40E /* NSFNanoStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFNanoStore.m; sourceTree = "<group>"; };
 		54B3E39B1755DF18000FB40E /* NSMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMObject.h; path = Model/NSMObject.h; sourceTree = "<group>"; };
 		54B3E39C1755DF18000FB40E /* NSMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMObject.m; path = Model/NSMObject.m; sourceTree = "<group>"; };
-		54B3E3A31755E217000FB40E /* NanoStoreModelMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NanoStoreModelMacro.h; path = Model/NanoStoreModelMacro.h; sourceTree = "<group>"; };
 		54B3E3A41755E2DD000FB40E /* NSMDynamicAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMDynamicAdditions.h; path = Model/NSMDynamicAdditions.h; sourceTree = "<group>"; };
 		54B3E3A51755E2DD000FB40E /* NSMDynamicAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMDynamicAdditions.m; path = Model/NSMDynamicAdditions.m; sourceTree = "<group>"; };
-		54B3E3A81755E32D000FB40E /* NSMObjectMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMObjectMetadata.h; path = Model/NSMObjectMetadata.h; sourceTree = "<group>"; };
-		54B3E3A91755E32D000FB40E /* NSMObjectMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMObjectMetadata.m; path = Model/NSMObjectMetadata.m; sourceTree = "<group>"; };
 		54B3E3AF1755E477000FB40E /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
 		54B3E3B01755E477000FB40E /* Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
 		54B3E3B11755E477000FB40E /* SpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectaSupport.h; sourceTree = "<group>"; };
@@ -242,13 +233,9 @@
 		54B3E4051755E49F000FB40E /* NSObject+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Expecta.h"; sourceTree = "<group>"; };
 		54B3E4061755E49F000FB40E /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Expecta.h"; sourceTree = "<group>"; };
 		54B3E4071755E49F000FB40E /* NSValue+Expecta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Expecta.m"; sourceTree = "<group>"; };
-		54B3E4241755E4C6000FB40E /* NSMObjectMetadataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMObjectMetadataSpec.m; sourceTree = "<group>"; };
 		54B3E4261755E54B000FB40E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54B3E4291755E7FC000FB40E /* NanoStoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NanoStoreModel.h; path = Model/NanoStoreModel.h; sourceTree = "<group>"; };
-		54B3E4301755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFNanoStore+NanoStoreModelAdditions.h"; path = "Model/NSFNanoStore+NanoStoreModelAdditions.h"; sourceTree = "<group>"; };
-		54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFNanoStore+NanoStoreModelAdditions.m"; path = "Model/NSFNanoStore+NanoStoreModelAdditions.m"; sourceTree = "<group>"; };
 		54B3E43317560042000FB40E /* NSMObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMObjectSpec.m; sourceTree = "<group>"; };
-		54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFNanoStore+NanoStoreModelAdditionsSpec.m"; sourceTree = "<group>"; };
 		54B3E43817560944000FB40E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		54B3E43917560944000FB40E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		54B3E43B1756096F000FB40E /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -342,9 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				54B3E43E17560C24000FB40E /* TestModels */,
-				54B3E435175600D6000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m */,
 				54B3E43317560042000FB40E /* NSMObjectSpec.m */,
-				54B3E4241755E4C6000FB40E /* NSMObjectMetadataSpec.m */,
 				54B3E3AC1755E469000FB40E /* Vendor */,
 				54B3E34D1755DE83000FB40E /* Supporting Files */,
 			);
@@ -439,13 +424,8 @@
 			children = (
 				54B3E39B1755DF18000FB40E /* NSMObject.h */,
 				54B3E39C1755DF18000FB40E /* NSMObject.m */,
-				54B3E4301755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.h */,
-				54B3E4311755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m */,
 				54B3E3A41755E2DD000FB40E /* NSMDynamicAdditions.h */,
 				54B3E3A51755E2DD000FB40E /* NSMDynamicAdditions.m */,
-				54B3E3A81755E32D000FB40E /* NSMObjectMetadata.h */,
-				54B3E3A91755E32D000FB40E /* NSMObjectMetadata.m */,
-				54B3E3A31755E217000FB40E /* NanoStoreModelMacro.h */,
 				54B3E4291755E7FC000FB40E /* NanoStoreModel.h */,
 			);
 			name = NanoStoreModel;
@@ -697,8 +677,6 @@
 				54B3E3981755DEBA000FB40E /* NSFNanoStore.m in Sources */,
 				54B3E39D1755DF18000FB40E /* NSMObject.m in Sources */,
 				54B3E3A61755E2DD000FB40E /* NSMDynamicAdditions.m in Sources */,
-				54B3E3AA1755E32D000FB40E /* NSMObjectMetadata.m in Sources */,
-				54B3E4321755FE00000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,7 +697,6 @@
 				54B3E3991755DEBA000FB40E /* NSFNanoStore.m in Sources */,
 				54B3E39E1755DF18000FB40E /* NSMObject.m in Sources */,
 				54B3E3A71755E2DD000FB40E /* NSMDynamicAdditions.m in Sources */,
-				54B3E3AB1755E32D000FB40E /* NSMObjectMetadata.m in Sources */,
 				54B3E3C11755E477000FB40E /* Specta.m in Sources */,
 				54B3E3C21755E477000FB40E /* SpectaUtility.m in Sources */,
 				54B3E3C31755E477000FB40E /* SPTExample.m in Sources */,
@@ -756,10 +733,7 @@
 				54B3E4211755E49F000FB40E /* EXPMatchers+raise.m in Sources */,
 				54B3E4221755E49F000FB40E /* EXPMatchers+raiseWithReason.m in Sources */,
 				54B3E4231755E49F000FB40E /* NSValue+Expecta.m in Sources */,
-				54B3E4251755E4C6000FB40E /* NSMObjectMetadataSpec.m in Sources */,
 				54B3E43417560042000FB40E /* NSMObjectSpec.m in Sources */,
-				54B3E436175600D7000FB40E /* NSFNanoStore+NanoStoreModelAdditionsSpec.m in Sources */,
-				54B3E4371756016F000FB40E /* NSFNanoStore+NanoStoreModelAdditions.m in Sources */,
 				54B3E43A17560944000FB40E /* User.m in Sources */,
 				54B3E43D1756096F000FB40E /* Car.m in Sources */,
 			);
