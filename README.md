@@ -14,13 +14,19 @@ Stage: Proof of concept. Don't use it in production yet, but try it out and see 
 
 ### Define a Model
 
-Define property normally as you would for your subclass of NSMObject. The fields that are of type supported by NanoStore (NSArray, NSDictionary, NSString, NSData, NSDate, NSNumber) will be persisted by NanoStore.
+Define property normally as you would for your subclass of NSMObject. 
+
+
+- For the properties that are of supported types (NSArray, NSDictionary, NSString, NSData, NSDate, NSNumber) will be persisted by store the value. 
+- For the properties that are NSFNanoBag will be persisted by store the key of the bag.
+- Other properties are ignored.
 
 ```objective-c
 @interface User : NSMObject
 @property (strong) NSString* name;
 @property (strong) NSNumber* age;
 @property (strong) NSDate* createdAt;
+@property (strong) NSFNanoBag* cars;
 @end
 
 @implementation User
@@ -47,3 +53,6 @@ ts:@"jdoe@foo.com", @"jdoe@bar.com", nil] forKey:@"kEmails"];
 // Close the document store
 [nanoStore closeWithError:nil];
 ```
+
+### Using Bags
+
