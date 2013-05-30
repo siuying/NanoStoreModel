@@ -1,0 +1,7 @@
+[
+  "-project", "NanoStoreModel.xcodeproj",
+  "-scheme", "NanoStoreModel",
+  "-configuration", "Debug",
+  "-sdk", "iphonesimulator",
+  "-arch", "i386"
+]
