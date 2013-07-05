@@ -15,7 +15,12 @@ void * NSMObjectBagsKey = &NSMObjectBagsKey;
 void NSMObjectAttributeSetter(id self, SEL _cmd, id val) {
     NSMObject* object = self;
     NSString* selector = NSStringFromSelector(_cmd);
-    NSString *key = [[selector substringWithRange:NSMakeRange(3, selector.length-4)] lowercaseString];
+    NSMutableString *key = [NSMutableString string];
+    [key appendString:[[selector substringWithRange:NSMakeRange(3, 1)] lowercaseString]];
+    if ([selector length] > 4) {
+        [key appendString:[selector substringWithRange:NSMakeRange(4, selector.length-5)]];
+    }
+
     [self willChangeValueForKey:key];
     if (val) {
         [object setObject:val forKey:key];
@@ -28,7 +33,7 @@ void NSMObjectAttributeSetter(id self, SEL _cmd, id val) {
 // Implementation of attribute getter (<AttributeName>)
 id NSMObjectAttributeGetter(id self, SEL _cmd) {
     NSMObject* object = self;
-    NSString *key = [NSStringFromSelector(_cmd) lowercaseString];
+    NSString *key = NSStringFromSelector(_cmd);
     return [object objectForKey:key];
 }
 

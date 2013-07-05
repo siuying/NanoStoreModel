@@ -59,6 +59,14 @@ describe(@"NSMObject", ^{
             expect(user.name).to.beNil();
             expect(user.age).to.equal(@20);
         });
+        
+        it(@"should use field with camel case", ^{
+            User* user = [User modelWithDictionary:@{@"socialNetworkNickname": @"jonny"}];
+            expect(user.socialNetworkNickname).to.equal(@"jonny");
+            
+            user.socialNetworkNickname = @"jonn";
+            expect(user.socialNetworkNickname).to.equal(@"jonn");
+        });
     });
 
     describe(@"bags", ^{
