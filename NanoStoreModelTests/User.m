@@ -10,7 +10,8 @@
 
 @implementation User
 
-@dynamic name, age, createdAt, cars, socialNetworkNickname;
+@dynamic name, age, createdAt, cars;
+@dynamic socialNetworkNickname, soldCars;
 
 @end
 

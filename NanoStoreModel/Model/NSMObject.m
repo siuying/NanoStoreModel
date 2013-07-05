@@ -11,15 +11,23 @@
 
 void * NSMObjectBagsKey = &NSMObjectBagsKey;
 
+NSString* keyWithSetterName(NSString* setter) {
+    if ([setter length] >= 5) {
+        NSMutableString *key = [NSMutableString string];
+        [key appendString:[[setter substringWithRange:NSMakeRange(3, 1)] lowercaseString]];
+        [key appendString:[setter substringWithRange:NSMakeRange(4, setter.length-5)]];
+        return key;
+    } else {
+        [NSException raise:NSInvalidArgumentException format:@"setter name should be at least 5 characters long"];
+        return nil;
+    }
+}
+
 // Implementation of attribute setter (set<AttributeName>:)
 void NSMObjectAttributeSetter(id self, SEL _cmd, id val) {
     NSMObject* object = self;
     NSString* selector = NSStringFromSelector(_cmd);
-    NSMutableString *key = [NSMutableString string];
-    [key appendString:[[selector substringWithRange:NSMakeRange(3, 1)] lowercaseString]];
-    if ([selector length] > 4) {
-        [key appendString:[selector substringWithRange:NSMakeRange(4, selector.length-5)]];
-    }
+    NSString *key = keyWithSetterName(selector);
 
     [self willChangeValueForKey:key];
     if (val) {
@@ -40,7 +48,7 @@ id NSMObjectAttributeGetter(id self, SEL _cmd) {
 // Implementation of bag getter (<AttributeName>)
 id NSMObjectBagGetter(id self, SEL _cmd) {
     NSMObject* object = self;
-    NSString *key = [NSStringFromSelector(_cmd) lowercaseString];
+    NSString *key = NSStringFromSelector(_cmd);
     NSString* bagKey = [object objectForKey:key];
     if (bagKey) {
         NSFNanoBag* bag = [[object performSelector:@selector(nsmBags)] objectForKey:key];
@@ -66,7 +74,8 @@ void NSMObjectBagSetter(id self, SEL _cmd, id val) {
     NSMObject* object = self;
     NSFNanoBag* bag = val;
     NSString* selector = NSStringFromSelector(_cmd);
-    NSString *key = [[selector substringWithRange:NSMakeRange(3, selector.length-4)] lowercaseString];
+    NSString *key = keyWithSetterName(selector);
+
     [self willChangeValueForKey:key];
     if (val) {
         [object setObject:bag.key forKey:key];

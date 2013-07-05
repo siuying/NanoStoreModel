@@ -51,6 +51,12 @@ describe(@"NSMObject", ^{
             expect(user2.name).to.equal(user.name);
             expect(user2.age).to.equal(user.age);
             expect(user2.createdAt).to.equal(user.createdAt);
+            
+            // single character attribute
+            Car* car = [Car modelWithDictionary:@{@"x": @10}];
+            expect(car.x).to.equal(@10);
+            car.x = @11;
+            expect(car.x).to.equal(@11);
         });
         
         it(@"should accept nil in getter", ^{
@@ -60,7 +66,7 @@ describe(@"NSMObject", ^{
             expect(user.age).to.equal(@20);
         });
         
-        it(@"should use field with camel case", ^{
+        it(@"should use attribute with camel case", ^{
             User* user = [User modelWithDictionary:@{@"socialNetworkNickname": @"jonny"}];
             expect(user.socialNetworkNickname).to.equal(@"jonny");
             
@@ -88,6 +94,13 @@ describe(@"NSMObject", ^{
             user.name = nil;
             expect(user.name).to.beNil();
             expect(user.age).to.equal(@20);
+        });
+        
+        it(@"should use bags with camel case", ^{
+            User* user = [User modelWithDictionary:@{@"socialNetworkNickname": @"jonny"}];
+            NSFNanoBag* theBag = [NSFNanoBag bagWithName:@"hello"];
+            user.soldCars = theBag;
+            expect(user.soldCars.key).to.equal(theBag.key);
         });
     });
     

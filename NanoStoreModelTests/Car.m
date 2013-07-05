@@ -9,5 +9,5 @@
 #import "Car.h"
 
 @implementation Car
-@dynamic name;
+@dynamic name, x;
 @end

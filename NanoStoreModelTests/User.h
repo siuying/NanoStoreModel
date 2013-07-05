@@ -14,9 +14,11 @@
 @property (strong) NSString* name;
 @property (strong) NSNumber* age;
 @property (strong) NSString* socialNetworkNickname;
-
 @property (strong) NSDate* createdAt;
+
+
 @property (strong) NSFNanoBag* cars;
+@property (strong) NSFNanoBag* soldCars;
 
 @end
 

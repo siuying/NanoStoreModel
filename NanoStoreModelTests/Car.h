@@ -12,5 +12,6 @@
 @interface Car : NSMObject
 
 @property (strong) NSString* name;
+@property (strong) NSNumber* x;
 
 @end
