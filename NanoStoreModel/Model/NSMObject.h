@@ -10,10 +10,10 @@
 
 @interface NSMObject : NSFNanoObject
 
-+(id) model;
++(instancetype) model;
 
-+(id) modelWithDictionary:(NSDictionary*)dictionary;
++(instancetype) modelWithDictionary:(NSDictionary*)dictionary;
 
-+(id) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key;
++(instancetype) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key;
 
 @end

@@ -155,16 +155,16 @@ void NSMObjectBagSetter(id self, SEL _cmd, id val) {
     [self setupAccessors];
 }
 
-+(id) model {
-    return [self nanoObject];
++(instancetype) model {
+    return [[self alloc]initNanoObjectFromDictionaryRepresentation:nil forKey:nil store:nil];
 }
 
-+(id) modelWithDictionary:(NSDictionary*)dictionary {
-    return [self nanoObjectWithDictionary:dictionary];
++(instancetype) modelWithDictionary:(NSDictionary*)dictionary {
+    return [[self alloc]initNanoObjectFromDictionaryRepresentation:dictionary forKey:nil store:nil];
 }
 
-+(id) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key {
-    return [self nanoObjectWithDictionary:dictionary key:key];
++(instancetype) modelWithDictionary:(NSDictionary*)dictionary key:(NSString*)key {
+    return [[self alloc]initNanoObjectFromDictionaryRepresentation:dictionary forKey:key store:nil];
 }
 
 @end
